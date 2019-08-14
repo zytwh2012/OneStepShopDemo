@@ -1,0 +1,24 @@
+<form [formGroup]='authForm' (ngSubmit)="onSubmit()">
+
+  <div *ngIf="!isCorrect" class="alert alert-danger">Username or password is not correct.</div>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName='username' placeholder="Username" required>
+    <mat-error>
+      Username is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" formControlName='password' placeholder="Your Password" required>
+    <mat-error>
+      Password is required.
+    </mat-error>
+  </mat-form-field>
+  <button type="submit" [disabled]="!authForm.valid">Sign In </button>
+
+  <div>
+    <p>Do not have a account? <a routerLink="/signup">Sign Up</a> </p>
+  </div>
+
+</form>
