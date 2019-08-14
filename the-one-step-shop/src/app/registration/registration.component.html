@@ -1,0 +1,75 @@
+<form [formGroup]='registrationForm' (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput type="text" formControlName='username' aria-describedby="usernamelHelp" placeholder="Username"
+      minlength="8" maxlength="20" pattern="[a-zA-Z0-9]*">
+    <small id="usernamelHelp" class="form-text text-muted">
+      Your username must be 8-20 characters long, and must not contain spaces, special characters.
+    </small>
+    <mat-error>
+      Please enter a valid username.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" formControlName='password' placeholder="Your Password"
+      aria-describedby="passwordlHelp" minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+    <small id="passwordlHelp" class="form-text text-muted ">
+      Your password must be 8-20 characters long, contain at least one number and one uppercase and lowercase letter,
+      and must not contain spaces, special characters.
+    </small>
+    <mat-error>
+      Please enter a valid password.
+    </mat-error>
+  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <input matInput type="tel" formControlName='phoneNumber' placeholder="000-000-0000" 
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+      <mat-error>
+        Please enter a valid phone number.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="email" formControlName='email' placeholder="Email" required>
+      <mat-error>
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName='street' placeholder="Street address" required>
+      <mat-error>
+        Street is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName='city' placeholder="City" required>
+      <mat-error>
+        City is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName='province' placeholder="Province" required>
+      <mat-error>
+        Province is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName='postCode' placeholder="Postcode" required>
+      <mat-error>
+        Postcode is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-checkbox formControlName="termsCheck" required>I Accept terms of services</mat-checkbox>
+    <button type='submit' [disabled]="!registrationForm.valid">Sign Up</button>
+    <div><a routerLink="/signin">Already have an account?</a></div>
+  </div>
+
+</form>
