@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(){
+  onSubmit() {
     console.log('11111111');
   }
 }
