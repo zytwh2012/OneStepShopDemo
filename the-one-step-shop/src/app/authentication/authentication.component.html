@@ -1,7 +1,7 @@
 <form [formGroup]='authForm' (ngSubmit)="onSubmit()">
-    <div class="my-4">
-        <h3 class="font-weight-normal text-center">Please Sign In</h3>
-    </div>
+  <div class="my-4">
+    <h3 class="font-weight-normal text-center">Please Sign In</h3>
+  </div>
 
   <div *ngIf="!isCorrect" class="alert alert-danger">Username or password is not correct.</div>
 
