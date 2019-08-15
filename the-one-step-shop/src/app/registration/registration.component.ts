@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
     termsCheck: ['', Validators.required],
     shippingInfoForm: this.fb.group({
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       street: ['', Validators.required],
       city: ['', Validators.required],
       province: ['', Validators.required],
