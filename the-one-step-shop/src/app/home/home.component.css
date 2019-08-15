@@ -1,0 +1,8 @@
+mat-icon { 
+    padding-right: 2rem;
+    color: white;
+    outline: none;
+}
+button.mat-menu-item{
+    outline: none;
+}
