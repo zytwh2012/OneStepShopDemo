@@ -10,6 +10,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MyMaterialModule } from './material-module';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MyMaterialModule } from './material-module';
     AuthenticationComponent,
     RegistrationComponent,
     HomeComponent,
+    MainpageComponent,
 
   ],
   imports: [

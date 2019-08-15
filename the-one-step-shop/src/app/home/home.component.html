@@ -1,7 +1,7 @@
 <div class="row sticky-top" [ngStyle]="{'z-index': 99}">
     <div class="col">
         <nav class="navbar navbar-expand-lg bg-success">
-            <span class="navbar-brand text-white">The one step shop</span>
+            <span class="navbar-brand text-white">The One Step Shop</span>
             <button class="navbar-toggler btn btn-outline-danger" type="button" data-toggle="collapse"
                 data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation"
                 (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarToggler">
@@ -49,7 +49,7 @@
 <!-- content  -->
 <div class="row">
     <div class="col-2"> </div>
-    <div class="col">
+    <div class="col bg-light">
         <router-outlet></router-outlet>
     </div>
     <div class="col-2"> </div>
