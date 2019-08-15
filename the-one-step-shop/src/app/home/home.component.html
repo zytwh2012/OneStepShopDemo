@@ -4,8 +4,7 @@
             <span class="navbar-brand text-white">The one step shop</span>
             <button class="navbar-toggler btn btn-outline-danger" type="button" data-toggle="collapse"
                 data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation"
-                (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-                aria-controls="navbarToggler">
+                (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarToggler">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
@@ -30,14 +29,14 @@
                     </li>
                 </ul>
             </div>
-             
-            <mat-icon [matMenuTriggerFor]="menu" >account_circle</mat-icon>
+
+            <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
             <mat-menu #menu="matMenu">
-                <div *ngIf = "!isLoggedIn">
-                    <button mat-menu-item routerLink="/signin" >Sign In</button>
-                    <button mat-menu-item routerLink="/signup" >Sign Up</button>
+                <div *ngIf="!isLoggedIn">
+                    <button mat-menu-item routerLink="/signin">Sign In</button>
+                    <button mat-menu-item routerLink="/signup">Sign Up</button>
                 </div>
-                <div *ngIf = "isLoggedIn">
+                <div *ngIf="isLoggedIn">
                     <button mat-menu-item>My Account</button>
                     <button mat-menu-item>My Orders</button>
                 </div>
