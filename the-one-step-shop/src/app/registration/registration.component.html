@@ -1,5 +1,9 @@
 <form [formGroup]='registrationForm' (ngSubmit)="onSubmit()">
-  <mat-form-field>
+  <div class="my-4">
+    <h3 class="font-weight-normal text-center">Don't have an account? Create one now it's fast and easy.</h3>
+  </div>
+
+  <mat-form-field class="w-100 my-2">
     <input matInput type="text" formControlName='username' aria-describedby="usernamelHelp" placeholder="Username"
       minlength="8" maxlength="20" pattern="[a-zA-Z0-9]*">
     <small id="usernamelHelp" class="form-text text-muted">
@@ -10,7 +14,7 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="w-100 my-2">
     <input matInput type="password" formControlName='password' placeholder="Your Password"
       aria-describedby="passwordlHelp" minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
     <small id="passwordlHelp" class="form-text text-muted ">
@@ -21,44 +25,51 @@
       Please enter a valid password.
     </mat-error>
   </mat-form-field>
-  <div>
-    <mat-form-field>
-      <input matInput type="tel" formControlName='phoneNumber' placeholder="000-000-0000"
+
+  <div formGroupName='shippingInfoForm'>
+
+    <h6 class="font-weight-normal text-left my-1">Shipping Infomation</h6>
+
+    <mat-form-field class="w-100 my-1">
+      <input matInput type="tel" formControlName='phoneNumber' placeholder="Phone Number"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+      <small id="phonelHelp" class="form-text text-muted ">
+        Your phone number must be in following format 000-000-0000.
+      </small>
       <mat-error>
         Please enter a valid phone number.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="w-100 my-1">
       <input matInput type="email" formControlName='email' placeholder="Email" required>
       <mat-error>
         Please enter a valid email address.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="w-100 my-1">
       <input matInput type="text" formControlName='street' placeholder="Street address" required>
       <mat-error>
         Street is required.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="w-30 mr-1 my-1">
       <input matInput type="text" formControlName='city' placeholder="City" required>
       <mat-error>
         City is required.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="w-30 mr-1 my-1">
       <input matInput type="text" formControlName='province' placeholder="Province" required>
       <mat-error>
         Province is required.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="w-30 mr-1 my-1">
       <input matInput type="text" formControlName='postCode' placeholder="Postcode" required>
       <mat-error>
         Postcode is required.
@@ -68,8 +79,8 @@
 
   <div>
     <mat-checkbox formControlName="termsCheck" required>I Accept terms of services</mat-checkbox>
-    <button type='submit' [disabled]="!registrationForm.valid">Sign Up</button>
-    <div><a routerLink="/signin">Already have an account?</a></div>
+    <button type='submit' [disabled]="!registrationForm.valid" class="btn btn-success btn-block my-3">Sign Up</button>
+    <div class="mt-2 text-center"><a routerLink="/signin">Already have an account?</a></div>
   </div>
 
 </form>
