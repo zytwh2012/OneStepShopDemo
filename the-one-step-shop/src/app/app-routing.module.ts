@@ -3,8 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+
 
 const routes: Routes = [
+  { path: '', component: MainpageComponent },
   { path: 'signin', component: AuthenticationComponent },
   { path: 'signup', component: RegistrationComponent },
 ];
