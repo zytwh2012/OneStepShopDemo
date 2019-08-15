@@ -11,15 +11,16 @@ export class RegistrationComponent implements OnInit {
   registrationForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
+    termsCheck: ['', Validators.required],
     shippingInfoForm: this.fb.group({
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      provoince: ['', Validators.required],
+      province: ['', Validators.required],
       postCode: ['', Validators.required]
     }),
-    termsCheck: ['', Validators.required],
+
   });
 
   constructor(private fb: FormBuilder) { }
@@ -27,6 +28,6 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
-    console.log('11111111');
+    console.log(this.registrationForm.value);
   }
 }

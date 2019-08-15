@@ -8,7 +8,6 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
-
   authForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
@@ -22,7 +21,7 @@ export class AuthenticationComponent implements OnInit {
     })
   });
 
-  private isCorrect: boolean;
+  private isCorrect = true;
 
   constructor(private fb: FormBuilder) { }
 
