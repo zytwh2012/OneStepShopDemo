@@ -124,7 +124,7 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
 
 
 // api/authentication/signout
-authRouter.delete('/signout', (req, res) => {
+authRouter.delete('/signout', verifyToken,  (req, res) => {
     User.findByIdAndUpdate(req.userid, { 'token': '' }, { useFindAndModify: false }, (error) => {
         if (error) {
             console.log('/signout 520', error)

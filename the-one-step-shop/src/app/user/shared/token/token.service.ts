@@ -19,10 +19,3 @@ export class AuthTokenInterceptor implements HttpInterceptor {
     return next.handle(clonedRequest);
   }
 }
-@Injectable({
-  providedIn: 'root'
-})
-export class TokenService {
-
-  constructor() { }
-}
