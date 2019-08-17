@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs')
-const SALT_WORK_FACTOR = 999
+const SALT_WORK_FACTOR = 12
 const jwt = require('jsonwebtoken')
 
 var userSchema = new Schema({
@@ -12,7 +12,7 @@ var userSchema = new Schema({
     address: { type: Object, required: true },
     createDate: { type: Date, default: Date.now },
     modifyDate: { type: Date, default: Date.now },
-    token: { type: String, default: '' },
+    token: { type: String, default: '' }
 })
 
 
@@ -69,7 +69,7 @@ userSchema.statics.validatePassword = function (userPassword, candidatePassword,
 userSchema.pre('save', function (next) {
     var user = this
     user.modifyDate = Date.now()
-    // only hash the password if it has been modified (or is new)
+    // only hash the password if it has been modified or is new
     if (!user.isModified('password')) return next()
     // hash the password along with our new salt
     bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {

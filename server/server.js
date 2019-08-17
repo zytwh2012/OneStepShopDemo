@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const timeout = require('connect-timeout')
 const path = require('path')
 const authApi = require('./routes/authController')
-const database = 'mongodb+srv://sososos19:98765432@cluster0-wfs9h.mongodb.net/test?retryWrites=true&w=majority'
+const database = 'mongodb+srv://sososos19:987654321@cluster0-wfs9h.mongodb.net/test?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 3000
 
 // init connetction to remote database
@@ -29,11 +29,6 @@ app.use(haltOnTimedout)
 
 // add api controllers
 app.use('/api/authentication', authApi)
-
-app.all('/*', function (req, res, next) {
-  // Just send the index.html for other files to support HTML5Mode
-  res.sendFile('index.html', { root: __dirname })
-})
 
 // https://www.npmjs.com/package/connect-timeout
 function haltOnTimedout (error, req, res, next) {

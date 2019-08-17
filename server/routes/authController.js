@@ -26,7 +26,7 @@ authRouter.post('/signup', (req, res) => {
                 username: data.username,
                 id: data.id,
             }
-            console.log('/signup  200 ')
+            console.log('/signup  200 ',user)
             res.status(200).send({ user: user, query: 'signUp', status: 'sucessful' })
         }
     })
@@ -89,7 +89,6 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
                             if (err) return res.sendStatus(520)
                             if (data) {
                                 data.token = usrJson.token
-                                data.echart = dailyLogin(user)
                                 data.save()
                                 console.log('api/signin 200 token refresh')
                                 res.status(200).send({ 
@@ -107,7 +106,7 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
                     }
                 }
             } else {
-                console.log('/signin 403 ', error)
+                console.log('/signin 403 ')
                 res.status(403).send({
                     query: 'signIn',
                     status: 'unsucessful',
