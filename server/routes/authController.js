@@ -26,7 +26,7 @@ authRouter.post('/signup', (req, res) => {
                 username: data.username,
                 id: data.id,
             }
-            console.log('/signup  200 ',user)
+            console.log('/signup  200 ', user)
             res.status(200).send({ user: user, query: 'signUp', status: 'sucessful' })
         }
     })
@@ -37,13 +37,14 @@ authRouter.post('/signup', (req, res) => {
 authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
     let data = req.body
     let signinUser = new User(data.user)
+    console.log(signinUser)
     await User.findOne({ username: signinUser.username }, (error, user) => {
         if (error) {
             console.log('/signin  520 ', error)
-            res.status(520).send({ 
-                message: error, 
-                query: 'signIn', 
-                status: 'unsucessful' 
+            res.status(520).send({
+                message: error,
+                query: 'signIn',
+                status: 'unsucessful'
             })
             return
         }
@@ -59,10 +60,11 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
         User.validatePassword(user.password, signinUser.password, async (error, isMatch) => {
             if (error) {
                 console.log('/signin 400 ', error)
-                res.status(400).send({ 
-                    message: error, 
-                    query: 'signIn', 
-                    status: 'unsucessful' })
+                res.status(400).send({
+                    message: error,
+                    query: 'signIn',
+                    status: 'unsucessful'
+                })
             }
             if (isMatch) {
                 try {
@@ -75,10 +77,11 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
                             data.modifyDate = new Date()
                             data.save()
                             console.log('api/signin 200 ')
-                            return res.status(200).send({ 
-                                user: data, 
-                                query: 'signIn', 
-                                status: 'sucessful' })
+                            return res.status(200).send({
+                                user: data,
+                                query: 'signIn',
+                                status: 'sucessful'
+                            })
                         }
                     })
                 } catch (error) {
@@ -91,18 +94,20 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
                                 data.token = usrJson.token
                                 data.save()
                                 console.log('api/signin 200 token refresh')
-                                res.status(200).send({ 
-                                    user: usrJson, 
-                                    query: 'signIn', 
-                                    status: 'sucessful' })
+                                res.status(200).send({
+                                    user: usrJson,
+                                    query: 'signIn',
+                                    status: 'sucessful'
+                                })
                             }
                         })
                     } else {
                         console.log('/signin 400 ', error)
-                        res.status(400).send({ 
-                            message: error, 
-                            query: 'signIn', 
-                            status: 'unsucessful' })
+                        res.status(400).send({
+                            message: error,
+                            query: 'signIn',
+                            status: 'unsucessful'
+                        })
                     }
                 }
             } else {
@@ -119,7 +124,7 @@ authRouter.post('/signin', awaitHandlerFactory(async (req, res) => {
 
 
 // api/authentication/signout
-authRouter.delete('/signout', verifyToken, (req, res) => {
+authRouter.delete('/signout', (req, res) => {
     User.findByIdAndUpdate(req.userid, { 'token': '' }, { useFindAndModify: false }, (error) => {
         if (error) {
             console.log('/signout 520', error)

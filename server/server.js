@@ -33,7 +33,7 @@ app.use(haltOnTimedout)
 app.use('/api/authentication', authApi)
 
 // https://www.npmjs.com/package/connect-timeout
-function haltOnTimedout (error, req, res, next) {
+function haltOnTimedout(error, req, res, next) {
   if (error) {
     console.log(error)
     if (error.status) {

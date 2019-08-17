@@ -4,7 +4,10 @@
   </div>
 
   <div *ngIf="!isCorrect" class="alert alert-danger">Username or password is not correct.</div>
-  
+  <ngb-alert *ngIf="isFormInvalid" [dismissible]="true">
+    <strong>Warning!</strong> Your registration information is invalid.
+  </ngb-alert>
+
   <mat-form-field class="w-100 my-2">
     <input matInput type="text" formControlName='username' placeholder="Username" required>
     <mat-error>

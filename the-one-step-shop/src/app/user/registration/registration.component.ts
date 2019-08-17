@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit {
     private http: HttpClient,
     private authService: AuthenticationService,
     private router: Router,
-    ) { }
+  ) { }
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) { this.router.navigate(['/']); }
@@ -46,34 +46,29 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      // const username = this.registrationForm.get('username').value;
-      // const password = this.registrationForm.get('password').value;
-      // const phone = this.registrationForm.get('shippingInfoForm').value.phoneNumber;
-      // const email = this.registrationForm.get('shippingInfoForm').value.email;
-
       const addr = {
-        street : this.registrationForm.get('shippingInfoForm').value.street,
-        city : this.registrationForm.get('shippingInfoForm').value.city,
-        province : this.registrationForm.get('shippingInfoForm').value.province,
-        postcode : this.registrationForm.get('shippingInfoForm').value.postCode,
+        street: this.registrationForm.get('shippingInfoForm').value.street,
+        city: this.registrationForm.get('shippingInfoForm').value.city,
+        province: this.registrationForm.get('shippingInfoForm').value.province,
+        postcode: this.registrationForm.get('shippingInfoForm').value.postCode,
 
-    };
+      };
 
       const formData = {
-        username : this.registrationForm.get('username').value,
-        password : this.registrationForm.get('password').value,
-        phone : this.registrationForm.get('shippingInfoForm').value.phoneNumber,
-        email : this.registrationForm.get('shippingInfoForm').value.email,
+        username: this.registrationForm.get('username').value,
+        password: this.registrationForm.get('password').value,
+        phone: this.registrationForm.get('shippingInfoForm').value.phoneNumber,
+        email: this.registrationForm.get('shippingInfoForm').value.email,
         address: {
-          street : this.registrationForm.get('shippingInfoForm').value.street,
-          city : this.registrationForm.get('shippingInfoForm').value.city,
-          province : this.registrationForm.get('shippingInfoForm').value.province,
-          postcode : this.registrationForm.get('shippingInfoForm').value.postCode,
+          street: this.registrationForm.get('shippingInfoForm').value.street,
+          city: this.registrationForm.get('shippingInfoForm').value.city,
+          province: this.registrationForm.get('shippingInfoForm').value.province,
+          postcode: this.registrationForm.get('shippingInfoForm').value.postCode,
         }
       };
       this.http.post<any>(
         `${environment.baseUrl + 'authentication/signup'}`,
-        { user: formData},
+        { user: formData },
         { observe: 'response' }
       ).subscribe(
         res => {

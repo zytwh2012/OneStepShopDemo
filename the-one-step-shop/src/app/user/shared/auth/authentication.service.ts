@@ -12,7 +12,7 @@ export class AuthenticationService {
   }
   getToken() {
     const token = localStorage.getItem('token');
-    return ( (token && token !== undefined) ? token : '');
+    return ((token && token !== undefined) ? token : '');
   }
 
   setToken(token) {
@@ -23,7 +23,7 @@ export class AuthenticationService {
 
   isLoggedIn() {
     const token = localStorage.getItem('token');
-    return ( (token && token !== undefined) ? true : false);
+    return ((token && token !== undefined) ? true : false);
   }
 
   setUserInfo(user) {
@@ -32,7 +32,7 @@ export class AuthenticationService {
     localStorage.setItem('uername', user.username);
     localStorage.setItem('userEmail', user.email);
     this.username
-     = user.username;
+      = user.username;
   }
 
   getUserInfo() {

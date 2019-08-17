@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MyMaterialModule } from './material-module';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { LogoutComponent } from './user/logout/logout.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     RegistrationComponent,
     HomeComponent,
     MainpageComponent,
+    LogoutComponent,
 
   ],
   imports: [

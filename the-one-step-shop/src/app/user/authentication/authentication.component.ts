@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-
-
+import { AuthenticationService } from '../shared/auth/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-authentication',
@@ -14,24 +15,40 @@ export class AuthenticationComponent implements OnInit {
   authForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
-    registrationForm: this.fb.group({
-      phoneNumber: ['', Validators.required],
-      emailAddress: ['', Validators.required],
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      provoince: ['', Validators.required],
-      postCode: ['', Validators.required]
-    })
   });
 
-  private isCorrect = true;
+  isCorrect = true;
+  isFormInvalid = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private authService: AuthenticationService,
+    private router: Router, ) { }
 
   ngOnInit() {
+    if (this.authService.isLoggedIn()) { this.router.navigate(['/']); }
   }
 
   onSubmit() {
-    console.log('11111111');
+    if (this.authForm.valid) {
+      this.http.post<any>(
+        `${environment.baseUrl + 'authentication/signin'}`,
+        { user: this.authForm.value },
+        { observe: 'response' }
+      ).subscribe(
+        res => {
+          if (res.status === 200) {
+            this.authService.setUserInfo(res.body.user);
+            this.router.navigate(['/']);
+          }
+        },
+        error => {
+          this.isCorrect = false;
+        }
+      );
+    } else {
+      this.isFormInvalid = true;
+    }
   }
 }
