@@ -5,8 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { AuthenticationComponent } from './user/authentication/authentication.component';
+import { RegistrationComponent } from './user/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MyMaterialModule } from './material-module';
