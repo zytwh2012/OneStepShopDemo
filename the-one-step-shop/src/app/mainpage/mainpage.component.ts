@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
   featuredImages = [1, 2, 3].map(x => `../../assets/` + x + '.png');
+  items = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado','Windstorm', 'Bombasto', 'Magneta', 'Tornado','Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.featuredImages)
-    console.log(this.featuredImages[2])
   }
 
 }
