@@ -7,6 +7,7 @@ const path = require('path')
 const authApi = require('./routes/authController')
 const database = 'mongodb+srv://sososos19:987654321@cluster0-wfs9h.mongodb.net/test?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 3000
+const cors = require('cors')
 
 // init connetction to remote database
 mongoose.connect(database, { useNewUrlParser: true }, error => {
@@ -21,6 +22,7 @@ app.listen(PORT, function () {
 })
 
 // angualr static file
+app.use(cors())
 app.use(express.static(path.join(__dirname, './')))
 app.use(timeout('10s'))
 app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }))

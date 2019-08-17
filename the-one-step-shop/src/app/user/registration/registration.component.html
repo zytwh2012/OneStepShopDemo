@@ -3,6 +3,13 @@
     <h3 class="font-weight-normal text-center">Don't have an account? Create one now it's fast and easy.</h3>
   </div>
 
+  <ngb-alert *ngIf = "isFormInvalid" [dismissible]="true" >
+    <strong>Warning!</strong> Your registration information is invalid.
+  </ngb-alert>
+  <ngb-alert *ngIf = "isSignUpError" [dismissible]="true" >
+    <strong>Warning!</strong> Your registration is unsuccessful. Maybe you alreay had an account with us.
+  </ngb-alert>
+
   <mat-form-field class="w-100 my-2">
     <input matInput type="text" formControlName='username' aria-describedby="usernamelHelp" placeholder="Username"
       minlength="8" maxlength="20" pattern="[a-zA-Z0-9]*">
