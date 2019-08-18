@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const timeout = require('connect-timeout')
 const path = require('path')
 const authApi = require('./routes/authController')
+const itemApi = require('./routes/itemController')
 const database = 'mongodb+srv://sososos19:987654321@cluster0-wfs9h.mongodb.net/test?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 3000
 const cors = require('cors')
@@ -31,6 +32,7 @@ app.use(haltOnTimedout)
 
 // add api controllers
 app.use('/api/authentication', authApi)
+app.use('/api/items', itemApi)
 
 // https://www.npmjs.com/package/connect-timeout
 function haltOnTimedout(error, req, res, next) {
