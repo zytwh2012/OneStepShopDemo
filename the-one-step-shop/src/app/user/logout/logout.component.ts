@@ -26,7 +26,7 @@ export class LogoutComponent implements OnInit {
         `${environment.baseUrl + 'authentication/signout'}`,
         { observe: 'response' }
       ).subscribe((res) => {
-        this.authService.clearUserInfo(); 
+        this.authService.clearUserInfo();
         this.router.navigate(['/signin']);
       });
     }

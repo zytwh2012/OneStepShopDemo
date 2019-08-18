@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ItemListComponent implements OnInit {
   @Input() category: string;
-  limit = 10;
+  limit = 9;
   pullable = false;
   itemArray = [];
   url: string;
@@ -30,6 +30,12 @@ export class ItemListComponent implements OnInit {
         filter(needFetch => needFetch && this.pullable)
       );
 
+    this.scroll$.subscribe(() => {
+      this.loadItem(this.url + '&skip=' + this.itemArray.length);
+    }
+    );
+
+    // load first time
     if (this.itemArray.length === 0) {
       if (this.category === '"home"') {
         this.url = `${environment.baseUrl + 'items?limit=' + this.limit}`;
@@ -38,13 +44,8 @@ export class ItemListComponent implements OnInit {
       }
       this.loadItem(this.url + '&skip=' + this.itemArray.length);
     }
-    this.scroll$.subscribe(
-      () => {
-        this.loadItem(this.url + '&skip=' + this.itemArray.length);
-      }
-    );
-  }
 
+  }
   loadItem(url) {
     this.pullable = false; // avoid double pulling
     return this.http.get<any>(url, { observe: 'response' })
