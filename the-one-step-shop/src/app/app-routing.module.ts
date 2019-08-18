@@ -5,6 +5,7 @@ import { AuthenticationComponent } from './user/authentication/authentication.co
 import { RegistrationComponent } from './user/registration/registration.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { LogoutComponent } from './user/logout/logout.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'signin', component: AuthenticationComponent },
   { path: 'signup', component: RegistrationComponent },
   { path: 'signout', component: LogoutComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({
