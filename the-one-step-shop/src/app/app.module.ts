@@ -14,8 +14,8 @@ import { MyMaterialModule } from './material-module';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { AuthTokenInterceptor } from './user/shared/token/token.service';
-import { ItemComponent } from './shopping/item/item.component';
-import { ItemListComponent } from './shopping/item-list/item-list.component';
+import { ItemComponent } from './items/item/item.component';
+import { ItemListComponent } from './items/item-list/item-list.component';
 
 
 @NgModule({

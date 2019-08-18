@@ -32,7 +32,7 @@ app.use(haltOnTimedout)
 
 // add api controllers
 app.use('/api/authentication', authApi)
-app.use('/api/item', itemApi)
+app.use('/api/items', itemApi)
 
 // https://www.npmjs.com/package/connect-timeout
 function haltOnTimedout(error, req, res, next) {

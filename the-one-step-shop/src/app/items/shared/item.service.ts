@@ -6,17 +6,17 @@ import { Injectable } from '@angular/core';
 export class ItemService {
 
   constructor() {
-    let cart = new Set();
+  //   let cart = new Set();
 
-    addItem() {
+  //   addItem() {
 
-    }
+  //   }
 
-    removeItem(token) {
+  //   removeItem(token) {
 
-    }
-    clearCart(){
+  //   }
+  //   clearCart(){
       
-    }
-   }
+  //   }
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Item } from '../shared/item';
 
 @Component({
   selector: 'app-item',
@@ -6,17 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  @Input() item: object;
+
+  @Input() item: Item;
 
   constructor() { }
 
   ngOnInit() {
-    this.item = { 
-      name:"test",
-      description:"testdesc",
-      price:"100",
-      img:"../../assets/1.png"
-
-    };
+    this.item.img = '../../assets/items/' + this.item.img;
   }
 }
