@@ -18,15 +18,6 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" routerLink="/">Meat</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" routerLink="/">Household Supplies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" routerLink="/">Snacks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" routerLink="/">Drinks</a>
-                    </li>
                 </ul>
             </div>
 
@@ -37,7 +28,6 @@
                     <button mat-menu-item routerLink="/signup">Sign Up</button>
                 </div>
                 <div *ngIf="isLoggedIn">
-                    <button mat-menu-item>My Account</button>
                     <button mat-menu-item>My Orders</button>
                 </div>
             </mat-menu>
