@@ -18,6 +18,8 @@ import { ItemService } from './items/shared/item.service';
 import { ItemComponent } from './items/item/item.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -32,6 +34,8 @@ import { CartComponent } from './cart/cart.component';
     ItemComponent,
     ItemListComponent,
     CartComponent,
+    CartItemComponent,
+    CheckoutComponent,
 
   ],
   imports: [

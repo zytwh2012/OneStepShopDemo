@@ -12,7 +12,7 @@ export class ItemComponent implements OnInit {
 
   @Input() item: Item;
 
-  constructor( private cart: ItemService) { }
+  constructor(private cart: ItemService) { }
 
   ngOnInit() {
     this.item.img = '../../assets/items/' + this.item.img;

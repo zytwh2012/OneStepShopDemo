@@ -11,7 +11,7 @@ export class ItemService {
   constructor() { }
 
   addItem(item: Item) {
-    this.cart =  this.fetchCart();
+    this.cart = this.fetchCart();
     if (this.cart.has(item.name)) {
       const quantity = this.cart.get(item.name);
       this.cart.set(item.name, quantity + 1);
@@ -54,6 +54,12 @@ export class ItemService {
       const result = new Map(JSON.parse(localStorage.getItem('cart')));
       return result;
     }
+  }
+  setSubTotal(amount: number) {
+    localStorage.setItem('subTotal', String(amount));
+  }
+  getSubTotal() {
+    return Number(localStorage.getItem('subTotal'));
   }
 }
 

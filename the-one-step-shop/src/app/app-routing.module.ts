@@ -6,6 +6,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'signup', component: RegistrationComponent },
   { path: 'signout', component: LogoutComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({

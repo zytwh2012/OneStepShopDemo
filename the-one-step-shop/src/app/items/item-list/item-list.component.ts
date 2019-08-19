@@ -20,8 +20,7 @@ export class ItemListComponent implements OnInit {
   scroll$: Observable<any>;
 
   constructor(
-    private http: HttpClient,
-    private route: ActivatedRoute, ) { }
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.scroll$ = fromEvent(document, 'scroll')

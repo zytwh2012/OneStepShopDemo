@@ -1,1 +1,17 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="col-3 float-right">
+        <div class="card">
+            <div class="card-body">
+                <p>Subtotal : {{total| currency:'CAD'}} </p>
+                <a routerLink="/checkout" class="btn btn-primary btn-block">Check Out</a>
+            </div>
+        </div>
+    </div>
+    <ul class="list-unstyled row">
+        <li *ngFor="let item of itemArray; index as i" class="list-item col-12">
+            <app-cart-item [item]=item [quantity]=cartArray[i][1] (itemDeleted)="onItemDeleted(i)"></app-cart-item>
+        </li>
+
+    </ul>
+
+</div>
