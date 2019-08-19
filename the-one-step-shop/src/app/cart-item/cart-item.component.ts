@@ -13,7 +13,7 @@ import { ItemService } from '../items/shared/item.service';
 export class CartItemComponent implements OnInit {
   @Input() item: any;
   @Input() quantity: string;
-  @Output()itemDeleted: EventEmitter<any> = new EventEmitter();
+  @Output() itemDeleted: EventEmitter<any> = new EventEmitter();
   amount: number;
 
   constructor(private itemService: ItemService) { }

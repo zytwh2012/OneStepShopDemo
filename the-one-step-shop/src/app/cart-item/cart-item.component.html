@@ -1,21 +1,29 @@
 <div class="card">
-        <div class="row no-gutters">
-            <div class="col-2 ">
-                <img [src] ="item.img"  class= "img-fluid" [alt]="item.name">
-            </div>
-            <div class="col">
-                <div class="card-block px-2">
-                    <h4 class="card-title">{{item.name}}</h4>
-                    <p class="card-text">{{item.description}}</p>
-                    <div >
-                        <button type="button" (click) = "onAdd()" class="btn btn-primary"><mat-icon>add</mat-icon></button>
-                        {{amount}}
-                        <button type="button" (click) = "onRemove()" class="btn btn-primary"><mat-icon><mat-icon>remove</mat-icon></mat-icon></button>
-                        <button type="button" (click) = "onDelete()" class="btn btn-danger float-right"><mat-icon  class="float-right"> delete</mat-icon></button>
-                    </div>
-                    <h4 class="card-text text-warning">${{item.price | currency:'CAD'}}</h4>
-                   
+    <div class="row no-gutters">
+        <div class="col-2 ">
+            <img [src]="item.img" class="img-fluid" [alt]="item.name">
+        </div>
+        <div class="col">
+            <div class="card-block px-2">
+                <h4 class="card-title">{{item.name}}</h4>
+                <p class="card-text">{{item.description}}</p>
+                <div>
+                    <button type="button" (click)="onAdd()" class="btn btn-primary">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    {{amount}}
+                    <button type="button" (click)="onRemove()" class="btn btn-primary">
+                        <mat-icon>
+                            <mat-icon>remove</mat-icon>
+                        </mat-icon>
+                    </button>
+                    <button type="button" (click)="onDelete()" class="btn btn-danger float-right">
+                        <mat-icon class="float-right"> delete</mat-icon>
+                    </button>
                 </div>
+                <h4 class="card-text text-warning">${{item.price | currency:'CAD'}}</h4>
+
             </div>
         </div>
-  </div>
+    </div>
+</div>
