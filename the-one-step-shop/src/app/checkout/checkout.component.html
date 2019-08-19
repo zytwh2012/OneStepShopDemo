@@ -1,0 +1,53 @@
+<div class="card bg-light my-3 w-80">
+    <div class="card-header">Check Out</div>
+    <div class="card-body">
+        <p class="font-weight-bold">Subtotal: {{subtotal | currency:'CAD' }}</p>
+        <p class="text-sm font-weight-bold"> Taxes: {{tax | currency:'CAD' }}</p>
+        <hr>
+        <p class="font-weight-bold">Estimated total: {{total | currency:'CAD' }}</p>
+
+        <form [formGroup]='orderForm' (ngSubmit)="onSubmit()">
+            <div class="my-4">
+                <h3 class="font-weight-bold text-center">Billing Information</h3>
+            </div>
+            <ngb-alert *ngIf="isFormInvalid" [dismissible]="true">
+                <strong>Warning!</strong> Your Billing information is invalid.
+            </ngb-alert>
+
+            <mat-form-field class="w-100 my-2">
+                <input matInput type="text" formControlName='cardHolderName' placeholder="Card Holder Name " required>
+                <mat-error>
+                    Card Holder Name is required.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100 my-2">
+                <input matInput type="number" formControlName='cardNumber' placeholder="Card Number " required>
+                <mat-error>
+                    Card Number is required.
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="w-100 my-2">
+                <input matInput type="password" formControlName='csc' placeholder="csc" required>
+                <mat-error>
+                    csc is required.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100 my-2">
+                <input matInput formControlName='cardExpirationDate' [matDatepicker]="picker"
+                    placeholder="Card Expiration Date ">
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+
+            <button type="submit" [disabled]="!orderForm.valid" class=" btn btn-success btn-block bt-3"> Place Your
+                Order</button>
+        </form>
+    </div>
+</div>

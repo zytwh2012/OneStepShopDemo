@@ -14,8 +14,14 @@ import { MyMaterialModule } from './material-module';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { AuthTokenInterceptor } from './user/shared/token/token.service';
+import { ItemService } from './items/shared/item.service';
 import { ItemComponent } from './items/item/item.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 
 
 @NgModule({
@@ -28,6 +34,10 @@ import { ItemListComponent } from './items/item-list/item-list.component';
     LogoutComponent,
     ItemComponent,
     ItemListComponent,
+    CartComponent,
+    CartItemComponent,
+    CheckoutComponent,
+    NotfoundComponent,
 
   ],
   imports: [
@@ -39,7 +49,7 @@ import { ItemListComponent } from './items/item-list/item-list.component';
     MyMaterialModule,
     NgbModule,
   ],
-  providers: [[{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }]],
+  providers: [ItemService, [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
