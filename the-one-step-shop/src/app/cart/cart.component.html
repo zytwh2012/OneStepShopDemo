@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <p>Subtotal : {{total| currency:'CAD'}} </p>
-                <a routerLink="/checkout" class="btn btn-primary btn-block">Check Out</a>
+                <button routerLink="/checkout" [disabled] = "total === 0" class="btn btn-primary btn-block">Check Out</button>
             </div>
         </div>
     </div>

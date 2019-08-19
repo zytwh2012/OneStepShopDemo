@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
+
 import { AuthenticationService } from '../user/shared/auth/authentication.service';
 
 @Component({
@@ -11,11 +13,17 @@ export class HomeComponent implements OnInit {
   showAuth = false;
   isLoggedIn = false;
 
-  constructor(
-    private authService: AuthenticationService,
-  ) { }
+  // detect router change
+
+  constructor(private authService: AuthenticationService, private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.isLoggedIn = this.authService.isLoggedIn();
+      }
+    });
+  }
+
 
   ngOnInit() {
-    this.isLoggedIn = this.authService.isLoggedIn();
   }
 }
