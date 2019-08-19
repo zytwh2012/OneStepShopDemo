@@ -36,6 +36,7 @@ export class CheckoutComponent implements OnInit {
     this.total = this.subtotal + this.tax;
   }
   onSubmit() {
+    this.itemsService.clearCart();
     this.router.navigate(['/']);
   }
 }
