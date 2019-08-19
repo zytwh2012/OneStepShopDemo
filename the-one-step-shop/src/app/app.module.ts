@@ -20,6 +20,7 @@ import { ItemListComponent } from './items/item-list/item-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
@@ -36,6 +37,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     CartItemComponent,
     CheckoutComponent,
+    NotfoundComponent,
 
   ],
   imports: [
